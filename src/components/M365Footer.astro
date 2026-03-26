@@ -1,0 +1,46 @@
+---
+const columns = [
+  { title: "Novedades", links: ["Aplicaciones y eventos", "Conoce las novedades", "Noticias", "Recursos"] },
+  { title: "Microsoft Store", links: ["Software", "Dispositivos", "Accesorios", "Ofertas"] },
+  { title: "Educación", links: ["Planes para estudiantes", "Recursos", "Microsoft Learn", "Centro de ayuda"] },
+  { title: "Empresa", links: ["Soluciones", "Seguridad", "Equipos", "Contacto"] },
+  { title: "Desarrollo y TI", links: ["Documentación", "Plataformas", "Innovación", "Soporte"] },
+  { title: "Compañía", links: ["Acerca de Microsoft", "Carreras", "Prensa", "Legal"] },
+];
+---
+
+<footer class="bg-white">
+  <div class="mx-auto max-w-[1440px] px-6 pt-12 pb-10">
+    <div class="grid gap-10 md:grid-cols-6">
+      {columns.map((c) => (
+        <div>
+          <p class="text-[12px] font-semibold text-black/60">{c.title}</p>
+          <ul class="mt-4 space-y-2 text-[12px] text-black/40">
+            {c.links.map((l) => (
+              <li>
+                <a href="#" class="hover:text-black/70">
+                  {l}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <div class="mt-12 flex items-center justify-between gap-6 border-t border-black/10 pt-8">
+      <div class="flex items-center gap-3">
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#0c2a4a] text-white text-[12px] font-semibold">in</span>
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-black/70 text-[12px] font-semibold">X</span>
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-black/70 text-[12px] font-semibold">O</span>
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-black/70 text-[12px] font-semibold">YT</span>
+        <span class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-black/10 text-black/70 text-[12px] font-semibold">D</span>
+      </div>
+
+      <div class="text-[12px] text-black/45">
+        Privacidad y cookies · Términos · © {new Date().getFullYear()} Microsoft
+      </div>
+    </div>
+  </div>
+</footer>
+

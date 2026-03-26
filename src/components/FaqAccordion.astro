@@ -1,0 +1,59 @@
+---
+const faqs = [
+  "¿Cuál es la diferencia entre Copilot en la aplicación móvil y Copilot en las aplicaciones de Microsoft 365?",
+  "¿Copilot funciona en todas mis aplicaciones, como Outlook, Word y PowerPoint?",
+  "¿Cuáles son los escenarios comunes para los que alguien puede utilizar Copilot en Microsoft 365?",
+  "¿Cuál es la mejor opción para usar con mi equipo en el trabajo: Microsoft 365 Familia o Microsoft 365 Premium?",
+  "Soy suscriptor de Microsoft 365 Familia. ¿Tiene ahora mi familia acceso a Copilot como parte de nuestro plan?",
+  "¿Qué es el programa Microsoft Frontier y cómo puedo participar?",
+  "¿Cuál es la ventaja de Copilot en Microsoft 365 en comparación con herramientas gratuitas o más baratas como ChatGPT, Notion AI, etc.?",
+];
+---
+
+<section class="mx-auto w-full max-w-[1440px] px-6 py-16">
+  <div class="flex items-end justify-between gap-6">
+    <div>
+      <p class="text-[12px] text-black/50">INTRODUCCION</p>
+      <h2 class="mt-2 text-[38px] font-semibold tracking-tight text-black/90">Preguntas más frecuentes</h2>
+    </div>
+
+    <div class="hidden items-center gap-3 md:flex">
+      <button class="rounded-[16px] border border-black/15 bg-white px-4 py-2 text-[12px] font-semibold text-black/75">
+        Exportar todo
+      </button>
+      <button class="rounded-[16px] border border-black/10 bg-white px-4 py-2 text-[12px] font-semibold text-black/40">
+        Crear resumen
+      </button>
+    </div>
+  </div>
+
+  <div class="mt-12">
+    {faqs.map((question, idx) => (
+      <details
+        class="group border-b border-black/10 py-0"
+      >
+        <summary class="flex cursor-pointer list-none items-center justify-between py-6 pr-2">
+          <div class="flex items-start gap-5">
+            <div class="w-[44px] shrink-0 text-[12px] font-semibold text-black/40">
+              {String(idx + 1).padStart(2, "0")}/
+              {String(faqs.length).padStart(2, "0")}
+            </div>
+            <div class="pt-1 text-[15px] font-semibold text-black/85">{question}</div>
+          </div>
+
+          <div class="grid h-9 w-9 shrink-0 place-items-center rounded bg-[#0c2a4a] text-white shadow-sm transition group-open:rotate-45">
+            +
+          </div>
+        </summary>
+
+        <div class="pb-6 text-[14px] text-black/60">
+          <p class="max-w-[860px]">
+            Respuesta de ejemplo (puedes reemplazarla por el texto real). Mantengo el diseño del acordeón para que el
+            layout sea fiel.
+          </p>
+        </div>
+      </details>
+    ))}
+  </div>
+</section>
+

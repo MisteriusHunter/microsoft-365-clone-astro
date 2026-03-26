@@ -1,0 +1,25 @@
+---
+export type Props = {
+  src: string;
+  alt: string;
+  wrapperClass?: string;
+  imgClass?: string;
+  cropTopPx?: number;
+  cropLeftPx?: number;
+};
+
+const { src, alt, wrapperClass = "", imgClass = "", cropTopPx = 0, cropLeftPx = 0 } =
+  Astro.props;
+---
+
+<div class={`overflow-hidden ${wrapperClass}`}>
+  <img
+    src={src}
+    alt={alt}
+    class={`block w-full h-full object-cover ${imgClass}`}
+    style={`transform: translate(${-cropLeftPx}px, ${-cropTopPx}px);`}
+    loading="eager"
+    decoding="async"
+  />
+</div>
+

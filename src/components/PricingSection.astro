@@ -1,0 +1,76 @@
+---
+const plans = [
+  {
+    name: "Microsoft 365",
+    subtitle: "Gratuito",
+    price: null,
+    button: "Crear una cuenta gratuita",
+    accent: "border-black/10",
+    bullets: ["Para una persona", "5 GB de almacenamiento en la nube", "Funciones web y móviles de Word, Excel, PowerPoint, OneDrive, OneDrive y muchas más"],
+  },
+  {
+    name: "Microsoft 365 Básico",
+    subtitle: "$ 99.989,00",
+    price: "al año",
+    button: "Comprar ahora",
+    accent: "border-[#0c2a4a]/30",
+    bullets: ["Para 1 persona", "100 GB de almacenamiento en la nube y", "Protección avanzada para tu correo y tus datos", "Ofertas exclusivas y acceso anticipado"],
+    highlighted: true,
+  },
+  {
+    name: "Microsoft 365 Personal",
+    subtitle: "$ 369.999,00",
+    price: "al año",
+    button: "Comprar ahora",
+    accent: "border-black/10",
+    bullets: ["Todo lo que incluye Básico", "Usa en hasta cinco dispositivos simultáneamente", "Funciona en PC, iPhone, iPad y tablets Android/Apple", "Aplicaciones de escritorio con Copilot*"],
+  },
+];
+---
+
+<section class="bg-gradient-to-b from-[#f3c1b7] via-[#f7f6f3] to-[#eaf4fb]">
+  <div class="mx-auto max-w-[1440px] px-6 py-16">
+    <div class="overflow-hidden rounded-[26px] border border-black/10 bg-white">
+      <div class="px-10 pt-10">
+        <p class="text-[12px] font-semibold text-black/50">PLANES</p>
+        <h2 class="mt-2 text-[40px] font-semibold tracking-tight text-black/90">Encuentra el plan más adecuado para ti</h2>
+      </div>
+
+      <div class="flex justify-end px-10 pt-6">
+        <div class="flex items-center gap-2 rounded-full bg-[#e9e6df] p-2">
+          <button class="rounded-full bg-white px-4 py-2 text-[12px] font-semibold text-black shadow-sm">Anual</button>
+          <button class="rounded-full px-4 py-2 text-[12px] font-semibold text-black/60">Mensual</button>
+        </div>
+      </div>
+
+      <div class="grid gap-6 px-10 py-10 md:grid-cols-3">
+        {plans.map((plan) => (
+          <article class={`rounded-[20px] border bg-white p-7 ${plan.highlighted ? "border-[#0c2a4a]/40 shadow-[0_0_0_1px_rgba(12,42,74,0.08)]" : "border-black/10"}`}>
+            <p class="text-[12px] font-semibold text-black/50">{plan.name}</p>
+            <h3 class="mt-2 text-[30px] font-semibold tracking-tight text-black/90">{plan.subtitle}</h3>
+
+            {plan.price ? <p class="mt-1 text-[12px] text-black/55">{plan.price}</p> : null}
+
+            <!-- ✅ style inline para garantizar texto blanco sin importar Tailwind -->
+            <a
+              href="#"
+              style="background-color:#0c2a4a;color:#ffffff;"
+              class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm hover:opacity-90"
+            >
+              {plan.button}
+            </a>
+
+            <ul class="mt-6 space-y-2 text-[12px] text-black/65">
+              {plan.bullets.map((b) => (
+                <li class="flex items-start gap-2">
+                  <span class="mt-[2px] inline-block h-[14px] w-[14px] rounded-full bg-[#0c2a4a]/10" />
+                  <span>{b}</span>
+                </li>
+              ))}
+            </ul>
+          </article>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

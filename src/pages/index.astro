@@ -1,0 +1,307 @@
+---
+import "../styles/global.css";
+
+import M365Header from "../components/M365Header.astro";
+import AppsGridSection from "../components/AppsGridSection.astro";
+import PricingSection from "../components/PricingSection.astro";
+import FaqAccordion from "../components/FaqAccordion.astro";
+import M365Footer from "../components/M365Footer.astro";
+---
+
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Microsoft 365 - Pixel Perfect</title>
+  </head>
+
+  <body class="min-h-screen text-[#1a1a1a]">
+
+    <M365Header />
+
+    <main>
+
+      <!-- HERO -->
+      <section class="relative overflow-hidden bg-[#f5f5f5] min-h-[600px]">
+
+        <img
+          src="/assets/m365/fondo.png"
+          alt="Fondo de la página"
+          class="absolute inset-0 w-full h-full object-cover z-0"
+        />
+
+        <div class="absolute inset-0 bg-white/40 z-[1]"></div>
+
+        <div class="relative z-10 mx-auto max-w-[1600px] px-4 pt-[120px] pb-[80px]">
+          <div class="mx-auto max-w-[760px] text-center">
+
+            <p class="text-[11px] font-semibold uppercase tracking-[0.06em] text-[#605e5c]">
+              MICROSOFT 365 PARA INDIVIDUOS
+            </p>
+
+            <h1 class="mt-4 text-[52px] font-semibold leading-[1.1] tracking-[-0.02em] text-black">
+              Impulsa tu productividad al máximo
+            </h1>
+
+            <p class="mx-auto mt-4 max-w-[620px] text-[16px] leading-[1.6] text-[#605e5c]">
+              Consigue aplicaciones líderes en productividad con IA integrada, seguridad digital avanzada y almacenamiento en la nube, todo en un solo plan.
+            </p>
+
+            <!-- BOTONES -->
+            <div class="mt-7 flex justify-center gap-3">
+              <a
+                href="#planes"
+                style="background-color: #0b1f2a; color: #ffffff;"
+                class="h-[40px] inline-flex items-center px-5 text-[14px] font-semibold rounded-[2px] hover:opacity-90"
+              >
+                Consultar planes y precios
+              </a>
+
+              <a
+                href="#"
+                class="h-[40px] inline-flex items-center border border-black px-5 text-[14px] font-semibold text-black rounded-[2px] hover:bg-black/5"
+              >
+                Probar gratis
+              </a>
+            </div>
+
+          </div>
+
+          <!-- SEGMENT BAR -->
+          <div style="margin-top:3rem;width:100%;display:flex;justify-content:center;">
+            <div id="hero-segment-bar" style="display:flex;align-items:center;width:72%;border-radius:9999px;border:1px solid #e1dfdd;background:#ffffff;padding:8px 8px;box-shadow:0 1px 4px rgba(0,0,0,0.10);">
+              <button class="segment active">Para individuos</button>
+              <button class="segment">Para MIPYMES ›</button>
+              <button class="segment">Para grandes empresas ›</button>
+              <button class="segment">Para el ámbito educativo ›</button>
+            </div>
+          </div>
+
+          <p id="hero-segment-hint" style="margin-top:0.75rem;font-size:12px;color:#605e5c;text-align:center;">
+
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- SUBNAV — sticky, fuera del hero -->
+      <div class="sticky top-0 z-20 border-b border-[#e1dfdd] bg-white shadow-sm">
+        <div class="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 sm:flex-row sm:items-center sm:justify-between">
+
+          <nav class="flex flex-wrap gap-x-1 text-[13px] text-[#323130]">
+            <a href="#como-funciona" class="border-b-[3px] border-[#0067b8] px-1 pb-[14px] pt-[14px] font-semibold text-black cursor-pointer">
+              Cómo funciona
+            </a>
+            <a href="#noticias" class="px-1 pb-[14px] pt-[14px] hover:border-b-[3px] hover:border-[#605e5c] cursor-pointer">Noticias</a>
+            <a href="#que-incluye" class="px-1 pb-[14px] pt-[14px] hover:border-b-[3px] hover:border-[#605e5c] cursor-pointer">Qué incluye</a>
+            <a href="#planes" class="px-1 pb-[14px] pt-[14px] hover:border-b-[3px] hover:border-[#605e5c] cursor-pointer">Planes</a>
+            <a href="#introduccion" class="px-1 pb-[14px] pt-[14px] hover:border-b-[3px] hover:border-[#605e5c] cursor-pointer">Introducción</a>
+            <a href="#faq" class="px-1 pb-[14px] pt-[14px] hover:border-b-[3px] hover:border-[#605e5c] cursor-pointer">Preguntas más frecuentes</a>
+          </nav>
+
+          <div class="flex gap-2 shrink-0">
+            <a
+              href="#planes"
+              style="background-color: #0b1f2a; color: #ffffff;"
+              class="h-[36px] inline-flex items-center px-4 text-[13px] font-semibold rounded-[2px] hover:opacity-90 cursor-pointer"
+            >
+              Consultar planes y precios
+            </a>
+            <a
+              href="#"
+              class="h-[36px] inline-flex items-center border border-black px-4 text-[13px] font-semibold text-black rounded-[2px] hover:bg-black/5 cursor-pointer"
+            >
+              Pruébalo gratis
+            </a>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- SCRIPT -->
+      <script is:inline>
+        const buttons = document.querySelectorAll(".segment");
+        const hint = document.getElementById("hero-segment-hint");
+
+        const hints = [
+          "Contenido para uso personal y familiar.",
+          "Soluciones para pequeñas y medianas empresas.",
+          "Microsoft 365 para grandes organizaciones.",
+          "Herramientas para educación."
+        ];
+
+        buttons.forEach((btn, i) => {
+          btn.addEventListener("click", () => {
+            buttons.forEach(b => b.classList.remove("active"));
+            btn.classList.add("active");
+            hint.textContent = hints[i];
+          });
+        });
+      </script>
+
+      <!-- COPILOT -->
+      <section id="como-funciona" class="bg-[#fbfaf7]">
+        <div class="mx-auto grid max-w-[1440px] gap-12 px-6 py-16 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+          <div>
+            <p class="text-[12px] font-semibold text-black/50">CÓMO FUNCIONA</p>
+            <h2 class="mt-2 text-[40px] font-semibold tracking-tight text-black/90">Aumenta tu productividad con Copilot</h2>
+
+            <div class="mt-10 border-l-2 border-black/15 pl-5">
+              <div class="space-y-6">
+                <div class="flex items-center justify-between gap-6">
+                  <div>
+                    <p class="text-[14px] font-semibold text-black/80">Investiga con facilidad</p>
+                    <p class="mt-2 max-w-[430px] text-[12px] leading-relaxed text-black/65">
+                      Obtén consejos e información basados en inteligencia artificial para ayudarte a generar ideas,
+                      investigar y convertir tus ideas en puntos de partida útiles.
+                    </p>
+                  </div>
+                  <span class="text-black/40">⌃</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <p class="text-[14px] font-semibold text-black/80">Planifica con precisión</p>
+                  <span class="ml-auto text-black/40">⌃</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <p class="text-[14px] font-semibold text-black/80">Crear con confianza</p>
+                  <span class="ml-auto text-black/40">⌃</span>
+                </div>
+                <div class="flex items-center gap-4">
+                  <p class="text-[14px] font-semibold text-black/80">Proteger lo importante</p>
+                  <span class="ml-auto text-black/40">⌃</span>
+                </div>
+              </div>
+            </div>
+
+            <a href="#" class="mt-12 inline-flex items-center gap-3 text-[12px] font-semibold text-black/65 hover:text-black/90">
+              Más información sobre Microsoft 365 para individuos <span>›</span>
+            </a>
+          </div>
+
+          <div class="relative">
+            <div class="rounded-[26px] bg-[#d9eefc] p-6">
+              <img src="/assets/m365/copilot-agentmode-card.png" alt="Copilot en Word" class="w-full h-auto" loading="eager" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- NOTICIAS -->
+      <section id="noticias" class="bg-white">
+        <div class="mx-auto max-w-[1440px] px-6 py-16">
+          <p class="text-[12px] font-semibold text-black/50">NOTICIAS</p>
+          <h2 class="mt-2 text-[40px] font-semibold tracking-tight text-black/90">
+            Descubre lo que está sucediendo con Microsoft 365
+          </h2>
+
+          <div class="mt-8 overflow-hidden rounded-[22px] border border-black/10 bg-white">
+            <div class="grid gap-10 p-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+              <div>
+                <p class="text-[14px] font-semibold text-black/80">Gratis para estudiantes: suscripción definitiva a IA y productividad</p>
+                <p class="mt-3 text-[12px] leading-relaxed text-black/60">
+                  Por tiempo limitado, obtén 12 meses de Microsoft 365 Premium gratis al registrarte con tu dirección de correo electrónico de la universidad.
+                </p>
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                  Consigue la oferta
+                </a>
+              </div>
+              <div>
+                <img src="/assets/m365/discover-woman.png" alt="Estudiantes con Microsoft 365" class="h-full w-full rounded-[18px] object-cover" loading="eager" />
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-10 grid gap-6 lg:grid-cols-2">
+            <article class="overflow-hidden rounded-[22px] border border-black/10 bg-white">
+              <img src="/assets/m365/office-tiles.png" alt="Blog" class="h-[180px] w-full object-cover" loading="eager" />
+              <div class="p-10">
+                <p class="text-[12px] font-semibold text-black/50">Blog</p>
+                <h3 class="mt-2 text-[18px] font-semibold text-black/90">Microsoft 365 Premium y las nuevas características avanzadas de Copilot</h3>
+                <p class="mt-3 text-[12px] leading-relaxed text-black/60">
+                  Presentamos el nuevo plan Microsoft 365 Premium con límites más altos de uso de inteligencia artificial y nuevas funciones avanzadas de Copilot.
+                </p>
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                  Leer el blog
+                </a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-black/10 bg-white">
+              <img src="/assets/m365/copilot-cat.png" alt="Copilot" class="h-[180px] w-full object-cover" loading="eager" />
+              <div class="p-10">
+                <p class="text-[12px] font-semibold text-black/50">Copilot</p>
+                <h3 class="mt-2 text-[18px] font-semibold text-black/90">Tu asistente de IA. Diseñado para el trabajo.</h3>
+                <p class="mt-3 text-[12px] leading-relaxed text-black/60">
+                  Copilot te complementa el día: está listo para ayudarte cuando lo necesitas.
+                </p>
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                  Probar Copilot
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- APPS GRID -->
+      <div id="que-incluye">
+        <AppsGridSection />
+      </div>
+
+      <!-- PRICING -->
+      <div id="planes">
+        <PricingSection />
+      </div>
+
+      <!-- INTRODUCCION -->
+      <section id="introduccion" class="relative overflow-hidden bg-[#e7f7ff]">
+        <div class="absolute inset-0 -z-10 bg-[radial-gradient(circle_at_20%_30%,rgba(255,139,76,0.25),transparent_45%),radial-gradient(circle_at_80%_10%,rgba(140,120,255,0.25),transparent_45%)]" />
+        <div class="mx-auto max-w-[1440px] px-6 py-16">
+          <p class="text-[12px] font-semibold text-black/50">INTRODUCCION</p>
+          <h2 class="mt-2 text-[38px] font-semibold tracking-tight text-black/90">Dar el siguiente paso con Microsoft 365</h2>
+
+          <div class="mt-12 grid gap-8 lg:grid-cols-2">
+            <article class="overflow-hidden rounded-[22px] border border-black/10 bg-white shadow-sm">
+              <div class="h-[210px] overflow-hidden">
+                <img src="/assets/m365/nextstep-people.png" alt="Elige el plan" class="h-full w-full object-cover" loading="eager" />
+              </div>
+              <div class="p-10">
+                <p class="text-[12px] font-semibold text-black/50">Elige el plan que prefieras</p>
+                <p class="mt-3 text-[12px] leading-relaxed text-black/60">
+                  Consigue las herramientas que necesitas para trabajar más rápido y colaborar de forma más eficiente, incluyendo almacenamiento en la nube, IA innovadora y seguridad digital.
+                </p>
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                  Consultar planes y precios
+                </a>
+              </div>
+            </article>
+
+            <article class="overflow-hidden rounded-[22px] border border-black/10 bg-white shadow-sm">
+              <div class="h-[210px] overflow-hidden">
+                <img src="/assets/m365/nextstep-frontier.png" alt="Frontier IA" class="h-full w-full object-cover" loading="eager" />
+              </div>
+              <div class="p-10">
+                <p class="text-[12px] font-semibold text-black/50">Frontier: prueba lo último en IA</p>
+                <p class="mt-3 text-[12px] leading-relaxed text-black/60">
+                  Accede a vistas previas prácticas y acceso anticipado a las innovaciones de Microsoft para ayudar a moldear el futuro de la IA.
+                </p>
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                  Más información
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <div id="faq">
+        <FaqAccordion />
+      </div>
+
+      <M365Footer />
+    </main>
+  </body>
+</html>

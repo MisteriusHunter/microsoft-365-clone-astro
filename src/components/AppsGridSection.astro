@@ -1,0 +1,100 @@
+---
+const apps = [
+  {
+    title: "Word",
+    desc: "Mejora tu escritura y crea documentos perfectos en cualquier momento y en cualquier lugar.",
+    accent: "from-[#2a6df6] to-[#7ccef7]",
+  },
+  {
+    title: "Excel",
+    desc: "Convierte los datos en conclusiones y simplifica los datos complejos en hojas y cálculos fiables.",
+    accent: "from-[#3cc56c] to-[#8bf0b4]",
+  },
+  {
+    title: "PowerPoint",
+    desc: "Transforma las ideas en presentaciones mejores y más convincentes.",
+    accent: "from-[#f04d44] to-[#ffb38a]",
+  },
+  {
+    title: "Outlook",
+    desc: "Administra tu correo electrónico, agenda, tareas y contactos en un solo lugar.",
+    accent: "from-[#1ea0ff] to-[#7ac7ff]",
+  },
+  {
+    title: "OneDrive",
+    desc: "Guarda y comparte tus archivos y fotos desde cualquier lugar.",
+    accent: "from-[#4b7fff] to-[#8aa8ff]",
+  },
+  {
+    title: "Microsoft Teams",
+    desc: "No solo para el trabajo: colabora con compañeros, organiza reuniones y trabaja en equipo.",
+    accent: "from-[#7a5cff] to-[#b5a3ff]",
+  },
+];
+---
+
+<section class="bg-[#e6f3fb]">
+  <div class="mx-auto max-w-[1440px] px-6 py-16">
+    <p class="text-[12px] font-semibold text-black/50">QUÉ INCLUYE</p>
+    <h2 class="mt-2 text-[38px] font-semibold tracking-tight text-black/90">
+      Consigue Microsoft 365 todo en un solo plan
+    </h2>
+
+    <div class="mt-6 flex items-center gap-4">
+      <button class="rounded-full bg-[#1a1a1a] px-5 py-2 text-[12px] font-semibold text-white shadow-sm">
+        Lo más destacado
+      </button>
+      <button class="rounded-full border border-black/15 bg-white px-5 py-2 text-[12px] font-semibold text-black/50 hover:text-black/70">
+        Más aplicaciones
+      </button>
+    </div>
+
+    <div class="mt-10 grid grid-cols-1 gap-4 md:grid-cols-4">
+      <!-- Left large tile -->
+      <div class="overflow-hidden rounded-[22px] border border-black/10 bg-white md:col-span-1 md:row-span-2">
+        <div class="relative h-[360px] bg-gradient-to-br from-[#cfe3f7] to-[#e9f4ff]">
+          <div class="absolute inset-0">
+            <div class="absolute left-6 top-8 h-16 w-16 rounded-2xl bg-gradient-to-br from-[#f35325] to-[#ff4875] blur-[0.5px]" />
+            <div class="absolute left-6 top-28 h-24 w-24 rounded-3xl bg-gradient-to-br from-[#05a6f0] to-[#81bc06]" />
+            <div class="absolute bottom-10 left-8 right-8 rounded-[18px] bg-white/80 p-6 backdrop-blur-sm">
+              <p class="text-[24px] font-semibold text-black/90">Aplicaciones para<br/>gestionar tu día a día</p>
+              <p class="mt-2 text-[12px] leading-relaxed text-black/60">
+                Obtén las aplicaciones, la seguridad y el almacenamiento en la nube que necesitas para alcanzar tus objetivos.
+              </p>
+              <div class="mt-6">
+                <!-- ✅ style inline para garantizar texto blanco -->
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="inline-flex rounded-full px-5 py-2 text-[12px] font-semibold hover:opacity-90">
+                  Más información
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right grid -->
+      <div class="md:col-span-3 md:grid md:grid-cols-3 md:gap-4">
+        {apps.map((app) => (
+          <article class="rounded-[22px] border border-black/10 bg-white p-6 md:mb-0">
+            <div class={`h-12 w-12 rounded-2xl bg-gradient-to-br ${app.accent} shadow-sm`} />
+            <h3 class="mt-6 text-[14px] font-semibold text-black/90">{app.title}</h3>
+            <p class="mt-3 text-[12px] leading-relaxed text-black/60">{app.desc}</p>
+            <a href="#" class="mt-5 inline-flex text-[12px] font-semibold text-black/70 hover:text-black/90">
+              Más información
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="mt-10 flex items-center justify-center">
+      <a
+        href="#"
+        class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-5 py-3 text-[12px] font-semibold text-black/60"
+      >
+        <span class="inline-block h-6 w-6 rounded-full bg-[#0c2a4a]" />
+        Explorar todas las aplicaciones
+      </a>
+    </div>
+  </div>
+</section>
