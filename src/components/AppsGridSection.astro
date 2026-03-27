@@ -1,4 +1,6 @@
 ---
+import FloatingShapes from "./FloatingShapes";
+
 const apps = [
   {
     title: "Word",
@@ -56,8 +58,7 @@ const apps = [
         <div class="relative h-[360px] bg-gradient-to-br from-[#cfe3f7] to-[#e9f4ff]">
           
           <div class="absolute inset-0">
-            <div class="absolute left-6 top-8 h-16 w-16 rounded-2xl bg-gradient-to-br from-[#f35325] to-[#ff4875] blur-[0.5px]" />
-            <div class="absolute left-6 top-28 h-24 w-24 rounded-3xl bg-gradient-to-br from-[#05a6f0] to-[#81bc06]" />
+            <FloatingShapes client:load />
             
             <div class="absolute bottom-10 left-8 right-8 rounded-[18px] bg-white/80 p-6 backdrop-blur-sm">
               <p class="text-[24px] font-semibold text-black/90">Aplicaciones para<br/>gestionar tu día a día</p>
@@ -65,7 +66,7 @@ const apps = [
                 Obtén las aplicaciones, la seguridad y el almacenamiento en la nube que necesitas para alcanzar tus objetivos.
               </p>
               <div class="mt-6">
-                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="inline-flex rounded-full px-5 py-2 text-[12px] font-semibold hover:opacity-90">
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="cta-button inline-flex rounded-full px-5 py-2 text-[12px] font-semibold hover:opacity-90">
                   Más información
                 </a>
               </div>

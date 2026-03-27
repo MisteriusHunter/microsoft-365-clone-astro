@@ -6,6 +6,8 @@ import AppsGridSection from "../components/AppsGridSection.astro";
 import PricingSection from "../components/PricingSection.astro";
 import FaqAccordion from "../components/FaqAccordion.astro";
 import M365Footer from "../components/M365Footer.astro";
+import HeroIntroAnimated from "../components/HeroIntroAnimated";
+import HeroCategoryBar from "../components/HeroCategoryBar";
 ---
 
 <html lang="es">
@@ -40,27 +42,21 @@ import M365Footer from "../components/M365Footer.astro";
               MICROSOFT 365 PARA INDIVIDUOS
             </p>
 
-            <h1 class="mt-4 text-[52px] font-semibold leading-[1.1] tracking-[-0.02em] text-black">
-              Impulsa tu productividad al máximo
-            </h1>
-
-            <p class="mx-auto mt-4 max-w-[620px] text-[16px] leading-[1.6] text-[#605e5c]">
-              Consigue aplicaciones líderes en productividad con IA integrada, seguridad digital avanzada y almacenamiento en la nube, todo en un solo plan.
-            </p>
+            <HeroIntroAnimated client:load />
 
             <!-- BOTONES -->
             <div class="mt-7 flex justify-center gap-3">
               <a
                 href="#planes"
                 style="background-color: #0b1f2a; color: #ffffff;"
-                class="h-[40px] inline-flex items-center px-5 text-[14px] font-semibold rounded-[2px] hover:opacity-90"
+                class="cta-button h-[40px] inline-flex items-center px-5 text-[14px] font-semibold rounded-[2px] hover:opacity-90"
               >
                 Consultar planes y precios
               </a>
 
               <a
                 href="#"
-                class="h-[40px] inline-flex items-center border border-black px-5 text-[14px] font-semibold text-black rounded-[2px] hover:bg-black/5"
+                class="cta-button h-[40px] inline-flex items-center border border-black px-5 text-[14px] font-semibold text-black rounded-[2px] hover:bg-black/5"
               >
                 Probar gratis
               </a>
@@ -68,19 +64,7 @@ import M365Footer from "../components/M365Footer.astro";
 
           </div>
 
-          <!-- SEGMENT BAR -->
-          <div style="margin-top:3rem;width:100%;display:flex;justify-content:center;">
-            <div id="hero-segment-bar" style="display:flex;align-items:center;width:72%;border-radius:9999px;border:1px solid #e1dfdd;background:#ffffff;padding:8px 8px;box-shadow:0 1px 4px rgba(0,0,0,0.10);">
-              <button class="segment active">Para individuos</button>
-              <button class="segment">Para MIPYMES ›</button>
-              <button class="segment">Para grandes empresas ›</button>
-              <button class="segment">Para el ámbito educativo ›</button>
-            </div>
-          </div>
-
-          <p id="hero-segment-hint" style="margin-top:0.75rem;font-size:12px;color:#605e5c;text-align:center;">
-
-          </p>
+          <HeroCategoryBar client:load />
 
         </div>
 
@@ -105,13 +89,13 @@ import M365Footer from "../components/M365Footer.astro";
             <a
               href="#planes"
               style="background-color: #0b1f2a; color: #ffffff;"
-              class="h-[36px] inline-flex items-center px-4 text-[13px] font-semibold rounded-[2px] hover:opacity-90 cursor-pointer"
+              class="cta-button h-[36px] inline-flex items-center px-4 text-[13px] font-semibold rounded-[2px] hover:opacity-90 cursor-pointer"
             >
               Consultar planes y precios
             </a>
             <a
               href="#"
-              class="h-[36px] inline-flex items-center border border-black px-4 text-[13px] font-semibold text-black rounded-[2px] hover:bg-black/5 cursor-pointer"
+              class="cta-button h-[36px] inline-flex items-center border border-black px-4 text-[13px] font-semibold text-black rounded-[2px] hover:bg-black/5 cursor-pointer"
             >
               Pruébalo gratis
             </a>
@@ -119,27 +103,6 @@ import M365Footer from "../components/M365Footer.astro";
 
         </div>
       </div>
-
-      <!-- SCRIPT -->
-      <script is:inline>
-        const buttons = document.querySelectorAll(".segment");
-        const hint = document.getElementById("hero-segment-hint");
-
-        const hints = [
-          "Contenido para uso personal y familiar.",
-          "Soluciones para pequeñas y medianas empresas.",
-          "Microsoft 365 para grandes organizaciones.",
-          "Herramientas para educación."
-        ];
-
-        buttons.forEach((btn, i) => {
-          btn.addEventListener("click", () => {
-            buttons.forEach(b => b.classList.remove("active"));
-            btn.classList.add("active");
-            hint.textContent = hints[i];
-          });
-        });
-      </script>
 
       <!-- COPILOT -->
       <section id="como-funciona" class="bg-[#fbfaf7]">
@@ -203,7 +166,7 @@ import M365Footer from "../components/M365Footer.astro";
                 <p class="mt-3 text-[12px] leading-relaxed text-black/60">
                   Por tiempo limitado, obtén 12 meses de Microsoft 365 Premium gratis al registrarte con tu dirección de correo electrónico de la universidad.
                 </p>
-                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="cta-button mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
                   Consigue la oferta
                 </a>
               </div>
@@ -222,7 +185,7 @@ import M365Footer from "../components/M365Footer.astro";
                 <p class="mt-3 text-[12px] leading-relaxed text-black/60">
                   Presentamos el nuevo plan Microsoft 365 Premium con límites más altos de uso de inteligencia artificial y nuevas funciones avanzadas de Copilot.
                 </p>
-                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="cta-button mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
                   Leer el blog
                 </a>
               </div>
@@ -236,7 +199,7 @@ import M365Footer from "../components/M365Footer.astro";
                 <p class="mt-3 text-[12px] leading-relaxed text-black/60">
                   Copilot te complementa el día: está listo para ayudarte cuando lo necesitas.
                 </p>
-                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="cta-button mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
                   Probar Copilot
                 </a>
               </div>
@@ -272,7 +235,7 @@ import M365Footer from "../components/M365Footer.astro";
                 <p class="mt-3 text-[12px] leading-relaxed text-black/60">
                   Consigue las herramientas que necesitas para trabajar más rápido y colaborar de forma más eficiente, incluyendo almacenamiento en la nube, IA innovadora y seguridad digital.
                 </p>
-                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="cta-button mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
                   Consultar planes y precios
                 </a>
               </div>
@@ -287,7 +250,7 @@ import M365Footer from "../components/M365Footer.astro";
                 <p class="mt-3 text-[12px] leading-relaxed text-black/60">
                   Accede a vistas previas prácticas y acceso anticipado a las innovaciones de Microsoft para ayudar a moldear el futuro de la IA.
                 </p>
-                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
+                <a href="#" style="background-color:#0c2a4a;color:#ffffff;" class="cta-button mt-6 inline-flex rounded-[2px] px-5 py-2.5 text-[12px] font-semibold shadow-sm transition hover:opacity-90">
                   Más información
                 </a>
               </div>
